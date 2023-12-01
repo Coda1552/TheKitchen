@@ -1,7 +1,9 @@
 {
-  "entity.thekitchen.mouse": "Mouse",
+  "itemGroup.thekitchen": "The Kitchen",
+
+  "item.thekitchen.cheese": "Cheese",
 
   "item.thekitchen.mouse_spawn_egg": "Mouse Spawn Egg",
 
-  "item.thekitchen.cheese": "Cheese"
+  "entity.thekitchen.mouse": "Mouse"
 }
