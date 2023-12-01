@@ -13,5 +13,5 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, TheKitchen.MOD_ID);
 
     public static final RegistryObject<EntityType<Mouse>> MOUSE = ENTITIES.register("mouse", () -> EntityType.Builder.of(Mouse::new, MobCategory.CREATURE).sized(0.25F, 0.25F).build("mouse"));
-    public static final RegistryObject<EntityType<Pinkie>> PINKIE = ENTITIES.register("pinkie", () -> EntityType.Builder.of(Pinkie::new, MobCategory.CREATURE).sized(0.15F, 0.15F).build("pinkie"));
+    public static final RegistryObject<EntityType<Pinkie>> PINKIE = ENTITIES.register("pinkie", () -> EntityType.Builder.of(Pinkie::new, MobCategory.CREATURE).sized(0.3F, 0.3F).build("pinkie"));
 }
