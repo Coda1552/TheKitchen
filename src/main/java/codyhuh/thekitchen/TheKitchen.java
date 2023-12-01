@@ -1,9 +1,8 @@
 package codyhuh.thekitchen;
 
+import codyhuh.thekitchen.registry.ModCreativeTabs;
 import codyhuh.thekitchen.registry.ModEntities;
 import codyhuh.thekitchen.registry.ModItems;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -17,13 +16,6 @@ public class TheKitchen {
 
         ModEntities.ENTITIES.register(bus);
         ModItems.ITEMS.register(bus);
-
-        bus.addListener(this::populateTabs);
-    }
-
-    private void populateTabs(BuildCreativeModeTabContentsEvent e) {
-        if (e.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
-            e.accept(ModItems.MOUSE_SPAWN_EGG.get());
-        }
+        ModCreativeTabs.CREATIVE_TABS.register(bus);
     }
 }
