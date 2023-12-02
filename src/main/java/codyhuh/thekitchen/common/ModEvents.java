@@ -2,7 +2,7 @@ package codyhuh.thekitchen.common;
 
 import codyhuh.thekitchen.TheKitchen;
 import codyhuh.thekitchen.common.entities.Mouse;
-import codyhuh.thekitchen.common.entities.Pinkie;
+import codyhuh.thekitchen.common.entities.Pinky;
 import codyhuh.thekitchen.registry.ModEntities;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,6 +14,6 @@ public class ModEvents {
     @SubscribeEvent
     public static void createAttributes(EntityAttributeCreationEvent e) {
         e.put(ModEntities.MOUSE.get(), Mouse.createMouseAttributes().build());
-        e.put(ModEntities.PINKIE.get(), Pinkie.createPinkieAttributes().build());
+        e.put(ModEntities.PINKY.get(), Pinky.createPinkyAttributes().build());
     }
 }

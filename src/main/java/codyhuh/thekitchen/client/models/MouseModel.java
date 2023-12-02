@@ -9,6 +9,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
 public class MouseModel<T extends Entity> extends EntityModel<T> {
@@ -20,7 +21,7 @@ public class MouseModel<T extends Entity> extends EntityModel<T> {
 
 	public MouseModel(ModelPart root) {
 		this.body = root.getChild("body");
-		this.tail = root.getChild("tail");
+		this.tail = body.getChild("tail");
 		this.leftEar = body.getChild("leftEar");
 		this.rightEar = body.getChild("rightEar");
 	}
@@ -35,19 +36,24 @@ public class MouseModel<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition rightEar = body.addOrReplaceChild("rightEar", CubeListBuilder.create().texOffs(0, 6).addBox(-0.5F, -1.0F, -1.0F, 2.0F, 2.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, -3.0F, 1.0F));
 
-		PartDefinition tail = partdefinition.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 1).addBox(-1.0F, -1.0F, 0.0F, 1.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.5F, 24.0F, 3.0F));
+		PartDefinition tail = body.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 1).addBox(-0.5F, -0.5F, 0.0F, 1.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.5F, 3.0F));
 
 		return LayerDefinition.create(meshdefinition, 16, 16);
 	}
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		//limbSwingAmount = Mth.clamp(limbSwingAmount, -0.5F, 0.5F);
 
+		//body.xRot = Mth.sin(limbSwing * 0.5F) * limbSwingAmount * 0.25F;
+		//body.y = Mth.sin(-1.0F - limbSwing * 0.5F) * limbSwingAmount + 24.0F;
+
+		//tail.xRot = Mth.cos(-1.0F - limbSwing * 0.5F) * limbSwingAmount * 0.5F;
+		//tail.y = Mth.sin(-1.0F - limbSwing * 0.5F) * limbSwingAmount * 0.5F - 0.5F;
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

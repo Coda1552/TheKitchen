@@ -1,5 +1,6 @@
 package codyhuh.thekitchen;
 
+import codyhuh.thekitchen.registry.ModBlocks;
 import codyhuh.thekitchen.registry.ModCreativeTabs;
 import codyhuh.thekitchen.registry.ModEntities;
 import codyhuh.thekitchen.registry.ModItems;
@@ -15,6 +16,7 @@ public class TheKitchen {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModEntities.ENTITIES.register(bus);
+        ModBlocks.BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
         ModCreativeTabs.CREATIVE_TABS.register(bus);
     }

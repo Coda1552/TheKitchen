@@ -2,6 +2,7 @@ package codyhuh.thekitchen.common.entities;
 
 import codyhuh.thekitchen.common.entities.goal.MousePanicGoal;
 import codyhuh.thekitchen.registry.ModEntities;
+import codyhuh.thekitchen.registry.ModItems;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.Tags;
@@ -32,11 +34,16 @@ public class Mouse extends Animal {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(0, new MousePanicGoal(this, 1.25D));
         this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(2, new TemptGoal(this, 1.25D, Ingredient.of(Tags.Items.SEEDS), false));
+        this.goalSelector.addGoal(2, new TemptGoal(this, 1.25D, Ingredient.of(ModItems.CHEESE.get()), false));
         this.goalSelector.addGoal(3, new FollowParentGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Player.class, 8.0F, 1.25D, 1.25D));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 40));
+    }
+
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        return pStack.is(ModItems.CHEESE.get());
     }
 
     public static AttributeSupplier.Builder createMouseAttributes() {
@@ -81,7 +88,7 @@ public class Mouse extends Animal {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return ModEntities.PINKIE.get().create(pLevel);
+        return ModEntities.PINKY.get().create(pLevel);
     }
 
     @Override

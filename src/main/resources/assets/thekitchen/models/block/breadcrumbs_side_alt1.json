@@ -1,0 +1,6 @@
+{
+  "parent": "thekitchen:block/breadcrumbs_side_alt",
+  "textures": {
+    "line": "thekitchen:block/breadcrumbs_line1"
+  }
+}

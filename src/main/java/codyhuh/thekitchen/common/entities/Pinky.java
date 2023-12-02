@@ -7,24 +7,25 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.Nullable;
 
-// todo - rename to Pinky
-public class Pinkie extends Animal {
+public class Pinky extends Animal {
 
-    public Pinkie(EntityType<? extends Animal> type, Level level) {
+    public Pinky(EntityType<? extends Animal> type, Level level) {
         super(type, level);
     }
 
     @Override
     protected void registerGoals() {
-        // todo - move to pinkie goal (so they group together)
+        this.goalSelector.addGoal(0, new RandomLookAroundGoal(this));
+        // todo - move to pinky goal (so they group together)
     }
 
-    public static AttributeSupplier.Builder createPinkieAttributes() {
+    public static AttributeSupplier.Builder createPinkyAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 3.0D).add(Attributes.MOVEMENT_SPEED, 0.0F);
     }
 
@@ -32,7 +33,7 @@ public class Pinkie extends Animal {
     public void tick() {
         super.tick();
 
-        if (age == 0) {
+        if (getAge() == 0) {
             if (level() instanceof ServerLevel serverlevel) {
                 Mouse mouse = ModEntities.MOUSE.get().create(this.level());
 

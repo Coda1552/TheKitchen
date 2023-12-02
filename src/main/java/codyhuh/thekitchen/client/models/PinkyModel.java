@@ -12,11 +12,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
-public class PinkieModel<T extends Entity> extends EntityModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(TheKitchen.MOD_ID, "pinkie"), "main");
+public class PinkyModel<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(TheKitchen.MOD_ID, "pinky"), "main");
 	private final ModelPart body;
 
-	public PinkieModel(ModelPart root) {
+	public PinkyModel(ModelPart root) {
 		this.body = root.getChild("body");
 	}
 

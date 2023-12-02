@@ -2,8 +2,10 @@
   "itemGroup.thekitchen": "The Kitchen",
 
   "item.thekitchen.cheese": "Cheese",
+  "block.thekitchen.breadcrumbs": "Breadcrumbs",
 
   "item.thekitchen.mouse_spawn_egg": "Mouse Spawn Egg",
 
-  "entity.thekitchen.mouse": "Mouse"
+  "entity.thekitchen.mouse": "Mouse",
+  "entity.thekitchen.pinky": "Pinky"
 }
