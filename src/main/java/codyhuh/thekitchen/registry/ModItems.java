@@ -15,6 +15,7 @@ public class ModItems {
     //Food
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).build())));
     public static final RegistryObject<Item> BREADCRUMBS = ITEMS.register("breadcrumbs", () -> new BlockItem(ModBlocks.BREADCRUMBS.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CITRUS = ITEMS.register("citrus", () -> new Item(new Item.Properties()));
 
     // Misc.
     public static final RegistryObject<Item> MOUSE_SPAWN_EGG = ITEMS.register("mouse_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.MOUSE, 0x6a5d56, 0xed848e, new Item.Properties()));
