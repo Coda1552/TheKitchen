@@ -5,8 +5,11 @@
   "item.thekitchen.citrus": "Citrus",
 
   "block.thekitchen.breadcrumbs": "Breadcrumbs",
+  "block.thekitchen.little_platter": "Little Platter",
 
   "item.thekitchen.mouse_spawn_egg": "Mouse Spawn Egg",
+
+  "container.thekitchen.little_platter": "Little Platter",
 
   "entity.thekitchen.mouse": "Mouse",
   "entity.thekitchen.pinky": "Pinky"

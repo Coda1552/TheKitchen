@@ -1,9 +1,6 @@
 package codyhuh.thekitchen;
 
-import codyhuh.thekitchen.registry.ModBlocks;
-import codyhuh.thekitchen.registry.ModCreativeTabs;
-import codyhuh.thekitchen.registry.ModEntities;
-import codyhuh.thekitchen.registry.ModItems;
+import codyhuh.thekitchen.registry.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -19,5 +16,6 @@ public class TheKitchen {
         ModBlocks.BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
         ModCreativeTabs.CREATIVE_TABS.register(bus);
+        ModBlockEntities.BLOCK_ENTITIES.register(bus);
     }
 }
